@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPark | Smart Public Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🅿 SmartPark</div>
+   
+<nav>
+    <a href="#home">Home</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#parking">Parking</a>
+    <a href="#about">About</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#booking">Book Now</a>
+    <a href="#bookings">My Bookings</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">SMART CITY PARKING SOLUTION</p>
+        <h1>Find Your Parking.<br><span>Save Your Time.</span></h1>
+        <p>Book your parking space easily with SmartPark.
+           A smarter and simpler way to park your vehicle.</p>
+        <a href="#parking" class="main-btn">Find Parking →</a>
+    </div>
+    <div class="hero-visual">
+    <div class="parking-circle">
+        <div class="parking-symbol">P</div>
+        <p>SMART PARKING</p>
+        <span>Park Smarter. Live Better.</span>
+    </div>
+    <div class="floating-card">
+        <span>🟢</span> Parking Made Easy
+    </div>
+</div>
+</section>
+
+<main class="container">
+
+    <section id="dashboard">
+        <h2>Parking Dashboard</h2>
+        <p class="subtitle">Parking availability overview</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span>Total Slots</span>
+                <h2 id="totalSlots">12</h2>
+            </div>
+            <div class="stat-card available">
+                <span>Available</span>
+                <h2 id="availableSlots">12</h2>
+            </div>
+            <div class="stat-card occupied">
+                <span>Occupied</span>
+                <h2 id="occupiedSlots">0</h2>
+            </div>
+            <div class="stat-card booked">
+                <span>Booked</span>
+                <h2 id="bookedSlots">0</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="parking">
+        <h2>Available Parking Spaces</h2>
+        <p class="subtitle">Select an available parking slot to book.</p>
+
+        <div class="legend">
+            <span>🟢 Available</span>
+            <span>🔴 Occupied</span>
+            <span>🟠 Booked</span>
+        </div>
+
+        <div id="slotGrid" class="slot-grid"></div>
+    </section>
+
+<section id="about" class="about-section">
+    <h2>About SmartPark</h2>
+    <p class="subtitle">A smarter approach to public parking management</p>
+
+    <div class="about-content">
+        <div>
+            <h3>Our Project</h3>
+            <p>
+                SmartPark is a Smart Public Parking System designed
+                to simplify vehicle parking by displaying parking
+                availability and allowing users to reserve parking
+                spaces conveniently.
+            </p>
+        </div>
+
+        <div>
+            <h3>Future Scope</h3>
+            <p>
+                The system can be extended using IoT technology,
+                Arduino or ESP32 controllers and sensors to detect
+                vehicle presence and update parking availability
+                automatically.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="how-section">
+    <h2>How SmartPark Works</h2>
+    <p class="subtitle">Simple steps for smarter parking</p>
+
+    <div class="how-grid">
+        <div class="how-card">
+            <div class="how-icon">🔍</div>
+            <h3>1. Find Parking</h3>
+            <p>View available parking spaces through the website.</p>
+        </div>
+
+        <div class="how-card">
+            <div class="how-icon">🅿️</div>
+            <h3>2. Select Slot</h3>
+            <p>Choose an available parking slot of your choice.</p>
+        </div>
+
+        <div class="how-card">
+            <div class="how-icon">📋</div>
+            <h3>3. Book Parking</h3>
+            <p>Enter your vehicle details and confirm your booking.</p>
+        </div>
+
+        <div class="how-card">
+            <div class="how-icon">✅</div>
+            <h3>4. Park Easily</h3>
+            <p>View your booking confirmation and parking details.</p>
+        </div>
+    </div>
+</section>
+
+    <section id="booking">
+        <h2>Book Your Parking</h2>
+        <p class="subtitle">Enter your details to reserve a parking space.</p>
+
+        <form id="bookingForm">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Vehicle Number</label>
+            <input type="text" id="vehicle" placeholder="Enter vehicle number" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter phone number"
+                   pattern="[0-9]{10}" maxlength="10" required>
+
+            <label>Select Parking Slot</label>
+            <select id="slotSelect" required>
+                <option value="">Choose a slot</option>
+            </select>
+
+            <label>Parking Date</label>
+            <input type="date" id="date" required>
+
+            <label>Parking Time</label>
+            <input type="time" id="time" required>
+
+            <button type="submit" class="main-btn">Confirm Booking</button>
+        </form>
+
+        <p id="message" role="status"></p>
+    </section>
+
+    <section id="bookings">
+        <h2>My Bookings</h2>
+        <p class="subtitle">View and manage your parking reservations.</p>
+        <div id="bookingList"></div>
+    </section>
+
+    <section id="admin">
+        <h2>Parking Management</h2>
+        <p class="subtitle">Manually update parking space status.</p>
+        <div id="adminGrid" class="admin-grid"></div>
+    </section>
+
+</main>
+
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p class="subtitle">Have questions? Get in touch with SmartPark.</p>
+
+    
+<div class="contact-grid">
+
+    <a href="mailto:smartpark@example.com" class="contact-card">
+        <span>📧</span>
+        <h3>Email Us</h3>
+        <p>Send us an email</p>
+    </a>
+
+    <a href="https://www.google.com/maps/search/public+parking+near+me"
+       target="_blank" rel="noopener" class="contact-card">
+        <span>📍</span>
+        <h3>Our Location</h3>
+        <p>Find public parking on Google Maps</p>
+    </a>
+
+    <a href="#dashboard" class="contact-card">
+        <span>🕒</span>
+        <h3>Parking Availability</h3>
+        <p>Check available parking slots</p>
+    </a>
+
+</div>
+
+</section>
+
+<footer>
+    <h3>🅿 SmartPark</h3>
+    <p>Smart Public Parking System</p>
+    <p>Making parking easier, faster and smarter.</p>
+    <p>© 2026 SmartPark Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
