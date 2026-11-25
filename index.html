@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +17,10 @@
     <a href="#parking">Parking</a>
     <a href="#about">About</a>
     <a href="#how-it-works">How It Works</a>
+        <a href="#agent">AI Agent</a>
     <a href="#booking">Book Now</a>
     <a href="#bookings">My Bookings</a>
+    <a href="#admin">Admin</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -73,13 +74,27 @@
 
     <section id="parking">
         <h2>Available Parking Spaces</h2>
-        <p class="subtitle">Select an available parking slot to book.</p>
+        <p class="subtitle">Choose a parking area to view its available spaces.</p>
+
+        <label for="locationFilter"><strong>Select Parking Location</strong></label>
+        <select id="locationFilter" class="location-select">
+            <option value="City Centre">City Centre Parking</option>
+            <option value="Bus Stand">Bus Stand Parking</option>
+            <option value="Railway Station">Railway Station Parking</option>
+        </select>
+
 
         <div class="legend">
             <span>🟢 Available</span>
             <span>🔴 Occupied</span>
             <span>🟠 Booked</span>
         </div>
+        <div class="legend">
+    <span>🚗 Car</span>
+    <span>🏍️ Bike</span>
+    <span>⚡ EV Charging</span>
+    <span>♿ Priority</span>
+</div>
 
         <div id="slotGrid" class="slot-grid"></div>
     </section>
@@ -141,8 +156,27 @@
         </div>
     </div>
 </section>
+    <section id="agent">
+        <h2>AI Parking Agent</h2>
+        <p class="subtitle">Ask about availability, fares or booking. The agent checks live slot data.</p>
+
+        <div class="chat-box">
+            <div id="chatLog" class="chat-log" role="log" aria-live="polite"></div>
+            <div class="chat-chips">
+                <button type="button" class="chip">Where can I park my car?</button>
+                <button type="button" class="chip">Any EV slots free?</button>
+                <button type="button" class="chip">Book a bike slot</button>
+                <button type="button" class="chip">How much is the fare?</button>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your question..." autocomplete="off">
+                <button type="button" id="chatSend" class="main-btn">Send</button>
+            </div>
+        </div>
+    </section>
 
     <section id="booking">
+           
         <h2>Book Your Parking</h2>
         <p class="subtitle">Enter your details to reserve a parking space.</p>
 
@@ -153,6 +187,18 @@
             <label>Vehicle Number</label>
             <input type="text" id="vehicle" placeholder="Enter vehicle number" required>
 
+            <label>Vehicle Type</label>
+            <select id="vehicleType" required>
+                <option value="">Choose vehicle type</option>
+                <option value="Car">Car</option>
+                <option value="Bike">Bike</option>
+                <option value="Electric Vehicle (EV)">Electric Vehicle (EV)</option>
+               
+            </select>
+             <label class="check-label">
+    <input type="checkbox" id="priorityAccess">
+    Priority parking (senior citizen / person with disability)
+</label>
             <label>Phone Number</label>
             <input type="tel" id="phone" placeholder="Enter phone number"
                    pattern="[0-9]{10}" maxlength="10" required>
@@ -161,6 +207,8 @@
             <select id="slotSelect" required>
                 <option value="">Choose a slot</option>
             </select>
+            <button type="button" id="recommendSlotBtn" class="recommend-btn">Auto-Allocate Best Slot</button>
+            <p id="recommendMessage" role="status"></p>
 
             <label>Parking Date</label>
             <input type="date" id="date" required>
@@ -181,10 +229,45 @@
     </section>
 
     <section id="admin">
-        <h2>Parking Management</h2>
-        <p class="subtitle">Manually update parking space status.</p>
+    <h2>Admin Dashboard</h2>
+    <p class="subtitle">Manage slots, bookings and parking records.</p>
+
+    <div id="adminLogin" class="admin-login">
+        <input type="password" id="adminPin" placeholder="Enter admin PIN">
+        <button type="button" id="adminLoginBtn" class="main-btn">Login</button>
+        <p id="adminLoginMsg" role="status"></p>
+    </div>
+
+    <div id="adminPanel" hidden>
+        <button type="button" id="adminLogoutBtn" class="admin-btn">Logout</button>
+
+        <h3 class="admin-heading">Location Occupancy</h3>
+        <div id="adminLocations" class="admin-grid"></div>
+
+        <h3 class="admin-heading">Slot Management</h3>
         <div id="adminGrid" class="admin-grid"></div>
-    </section>
+
+        <h3 class="admin-heading">Active Bookings</h3>
+        <div class="table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Vehicle</th><th>Slot</th><th>Date</th><th>Time</th><th>Action</th></tr>
+                </thead>
+                <tbody id="adminBookings"></tbody>
+            </table>
+        </div>
+
+        <h3 class="admin-heading">Parking Records</h3>
+        <div class="table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr><th>ID</th><th>Name</th><th>Vehicle</th><th>Slot</th><th>Status</th><th>Ended</th></tr>
+                </thead>
+                <tbody id="adminHistory"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
 </main>
 

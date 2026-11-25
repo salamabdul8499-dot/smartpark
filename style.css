@@ -132,9 +132,7 @@ nav a:hover {
     font-size: 13px;
     font-weight: bold;
     box-shadow: 0 5px 20px #00000025;
-} {
-    font-size: 130px;
-}
+} 
 
 .main-btn {
     display: inline-block;
@@ -579,3 +577,126 @@ cursor: pointer;
         grid-template-columns: 1fr;
     }
 }
+
+/* Parking location selector */
+.location-select {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 12px 0 22px;
+    padding: 12px 14px;
+    border: 1px solid #ccd5df;
+    border-radius: 7px;
+    background: white;
+    color: #1c2938;
+    font-size: 15px;
+}
+
+
+/* Vehicle selection and slot recommendation */
+#bookingForm select {
+    background: white;
+}
+
+.recommend-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 11px 14px;
+    border: 1px solid #176b70;
+    border-radius: 6px;
+    background: #eaf7f5;
+    color: #176b70;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.recommend-btn:hover {
+    background: #d5eeea;
+}
+
+#recommendMessage {
+    margin-top: 10px;
+    color: #176b70;
+    font-weight: 600;
+}
+/* Admin dashboard */
+[hidden] { display: none !important; }
+
+.admin-login {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.admin-login input {
+    padding: 12px 14px;
+    border: 1px solid #ccd5df;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.admin-heading {
+    margin: 28px 0 12px;
+    color: #102b46;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #0000000b;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 11px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5eaf0;
+    white-space: nowrap;
+}
+
+.admin-table th {
+    background: #eff8f7;
+    color: #176b70;
+}
+
+.admin-table td button {
+    margin: 0 6px 0 0;
+}
+/* Slot types and priority option */
+.slot .slot-type {
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 6px;
+}
+
+#bookingForm .check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+#bookingForm input[type="checkbox"] {
+    width: auto;
+}
+.live-timer { font-weight: bold; color: #176b70; margin: 12px 0; }
+
+/* AI agent */
+.chat-box { background: white; border-radius: 12px; max-width: 700px; padding: 20px; box-shadow: 0 4px 15px #0000000b; }
+.chat-log { height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 5px; }
+.msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; line-height: 1.5; white-space: pre-line; font-size: 14px; }
+.msg.bot { background: #eff8f7; color: #1c2938; align-self: flex-start; border-bottom-left-radius: 3px; }
+.msg.user { background: #176b70; color: white; align-self: flex-end; border-bottom-right-radius: 3px; }
+.chat-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.chip { border: 1px solid #176b70; background: #eaf7f5; color: #176b70; padding: 7px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; }
+.chip:hover { background: #d5eeea; }
+.chat-input { display: flex; gap: 10px; }
+.chat-input input { flex: 1; padding: 12px; border: 1px solid #ccd5df; border-radius: 7px; font-size: 15px; }
